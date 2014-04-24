@@ -15,17 +15,23 @@ namespace mirrormirror
                 colfour = 4
             };
 
-            var two = new B();
+            var two = new B
+            {
+                hello = "hello",
+                mom = "mom"
+            };
+
+            var three = new C();
 
             PrettyPrint(one);
             PrettyPrint(two);
+            PrettyPrint(three);
 
-            Console.WriteLine("init two");
-
-            two.init(one);
+            three.initMult(one, two);
 
             PrettyPrint(one);
             PrettyPrint(two);
+            PrettyPrint(three);
 
             Console.ReadLine();
         }
@@ -52,7 +58,13 @@ namespace mirrormirror
         public int colfour { get; set; }
     }
 
-    class B : Dto
+    class B
+    {
+        public string hello { get; set; }
+        public string mom { get; set; }
+    }
+
+    class C : Dto
     {
         public int colone { get; set; }
         public int coltwo { get; set; }
@@ -77,6 +89,12 @@ namespace mirrormirror
                     }
                 }
             }
+        }
+
+        public void initMult<T, R>(T t, R r)
+        {
+            init(t);
+            init(r);
         }
     }
 }
