@@ -131,6 +131,10 @@ namespace mirrormirror
 
     public static class Extension
     {
+        /* Create a DTO type you want to join into
+        *  Create a list with that type
+        *  See main for usage
+        */
         public static void JoinToDto<T, R, S>(this List<T> list1, List<R> list2, string joinon, out List<S> newlist) where S : new()
         {
             if (list1 == null || list2 == null)
